@@ -1,241 +1,590 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
-        <head>
-               <script type="application/ld+json">
-                {
-                  "@context": "http://schema.org",
-                  "@type": "Organization",
-                  "name": "研楷有限公司",
-                  "url": "https://www.aperturescience.com.tw",
-                  "logo": "https://www.aperturescience.com.tw/assets/logo.png",
-                  "sameAs": [
-                   
-                  ]
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Aperture Science Co., Ltd. | 工業熱顯與 AI 檢測專家</title>
+    <meta name="description" content="研楷有限公司 (Aperture Science Co., Ltd.) 專注於手持式紅外線熱像儀、AI/ML 影像分析。提供半導體、智慧能源與實驗室精密熱點檢測解決方案。">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navyMain: '#002d5a',       /* 洗鍊深海軍藍 */
+                        navyLight: '#f4f7fa',      /* 明亮溫暖灰藍底 */
+                        navyText: '#1e293b',       /* 深石板灰字體 */
+                        slateGray: '#64748b',      /* 洗鍊輔助灰 */
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans TC', 'sans-serif'],
+                        tech: ['Orbitron', 'sans-serif'],
+                    }
                 }
-                </script>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="author" content="研楷有限公司" />
-        <meta name="description" content="研楷有限公司提供精準的光學量測技術 涵蓋紅外線、可見光及X光影像分析" />
-        <meta name="keywords" content="光學量測, 紅外線影像分析, X光分析, AOI檢測, 工業相機" />
-<!--         <meta name="robots" content="index,follow" /> -->
-        <meta property="og:title" content="精準光學量測服務 | 研楷有限公司" />
-        <meta property="og:description" content="專注於系統整合，為半導體、能源業及研究單位提供高效解決方案，提升生產效率、技術創新與運營效能" />
-        <meta property="og:image" content="https://www.aperturescience.com.tw/assets/logo.png" />
-        <meta property="og:url" content="https://www.aperturescience.com.tw" />
-        <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://www.aperturescience.com.tw" />
-        <title>研楷有限公司</title>
-        <input type="hidden" name="csrf_token" value="your_csrf_token" />
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Bootstrap Icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
-        <!-- SimpleLightbox plugin CSS-->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-            <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#page-top">Aperture Science</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#about">關於研楷</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#services">服務項目</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">實際案例</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">聯絡我們</a></li>
-                    </ul>
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #fcfcfd; color: #1e293b; }
+        .glass-nav { background: rgba(252, 252, 253, 0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        
+        .page-view { display: none; min-height: 80vh; opacity: 0; transform: translateY(10px); transition: all 0.5s ease-out; }
+        .page-view.active { display: block; opacity: 1; transform: translateY(0); }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(252, 252, 253, 0.8), rgba(252, 252, 253, 0.92)), 
+                        url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover; background-position: center;
+        }
+
+        .logo-slider { display: flex; width: calc(250px * 14); animation: scroll 40s linear infinite; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-250px * 7)); } }
+        
+        .tech-border-accent { position: relative; border: 1px solid rgba(0, 45, 90, 0.1); }
+        .tech-border-accent::before { content: ''; position: absolute; top: -1px; left: -1px; width: 12px; height: 12px; border-top: 2px solid #002d5a; border-left: 2px solid #002d5a; }
+
+        .minimal-line { height: 1px; background: linear-gradient(90deg, transparent, rgba(0, 45, 90, 0.2), transparent); }
+        .nav-link.active { color: #002d5a; border-bottom: 2px solid #002d5a; }
+        
+        .star-blink { animation: blink 4s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 0.8; } 50% { opacity: 0.2; } }
+
+        .legal-content h4 { color: #002d5a; font-weight: bold; margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; border-left: 2px solid #002d5a; padding-left: 0.75rem; }
+        .legal-content p { color: #475569; margin-bottom: 1.25rem; line-height: 1.8; }
+
+        .hp-field { display: none !important; visibility: hidden !important; }
+    </style>
+</head>
+<body class="font-sans selection:bg-navyMain selection:text-white">
+
+    <nav class="fixed w-full z-[100] glass-nav border-b border-slate-200/50 transition-all duration-300" id="main-nav">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between h-20 items-center transition-all duration-300" id="nav-container">
+                <a href="#home" class="flex items-center space-x-3 group">
+                    <div class="w-12 h-12">
+                        <svg viewBox="0 0 100 100" class="w-full h-full">
+                            <circle cx="50" cy="50" r="42" fill="none" stroke="#002d5a" stroke-width="3" />
+                            <path d="M30 30 A30 30 0 0 1 70 30" fill="none" stroke="#334155" stroke-width="2.5" stroke-linecap="round" />
+                            <path d="M25 55 A35 35 0 0 0 75 55" fill="none" stroke="#334155" stroke-width="2.5" stroke-linecap="round" />
+                            <circle cx="50" cy="50" r="14" fill="#002d5a" />
+                            <circle cx="46" cy="46" r="3" fill="#ffffff" /> 
+                            <path d="M25 35 L27 41 L33 43 L27 45 L25 51 L23 45 L17 43 L23 41 Z" fill="#002d5a" class="star-blink" />
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="text-xl font-bold tracking-tighter text-navyMain font-tech uppercase">Aperture <span class="text-slate-500 font-light">Science</span></div>
+                        <div class="text-[9px] tracking-[0.2em] text-slate-400 font-normal m-0 uppercase">Aperture Science Co., Ltd.</div>
+                    </div>
+                </a>
+                <div class="hidden md:flex space-x-8 text-[12px] font-bold tracking-widest items-center">
+                    <a href="#home" class="nav-link py-2 border-b-2 border-transparent text-slate-600 hover:text-navyMain transition">首頁 HOME</a>
+                    <a href="#about" class="nav-link py-2 border-b-2 border-transparent text-slate-600 hover:text-navyMain transition">關於研楷 ABOUT</a>
+                    <a href="#products" class="nav-link py-2 border-b-2 border-transparent text-slate-600 hover:text-navyMain transition">產品方案 SOLUTIONS</a>
+                    <a href="#industries" class="nav-link py-2 border-b-2 border-transparent text-slate-600 hover:text-navyMain transition">產業應用 INDUSTRIES</a>
+                    <a href="#contact" class="bg-navyMain text-white hover:bg-slate-700 px-5 py-2 rounded-sm transition font-bold shadow-sm">聯絡諮詢 CONTACT</a>
                 </div>
             </div>
-        </nav>
-        <!-- Masthead-->
-        <header class="masthead">
-            <div class="container px-4 px-lg-5 h-100">
-                <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
-                    <div class="col-lg-8 align-self-end">
-                        <h1 class="text-white font-weight-bold mb-4">研楷有限公司 <br/> Aperture Science</h1>
-                        <p class="text-white-75 lead">專注於系統整合，為半導體、能源業及研究單位提供高效解決方案，提升生產效率、技術創新與運營效能</p>
-                        <hr class="divider" />
+        </div>
+    </nav>
+
+    <main id="view-home" class="page-view pt-20 active">
+        <section class="relative min-h-screen flex items-center hero-bg">
+            <div class="max-w-7xl mx-auto px-6 relative z-10">
+                <div class="md:w-2/3">
+                    <div class="inline-flex items-center space-x-3 px-3 py-1 bg-navyMain/5 border border-navyMain/20 text-navyMain text-xs font-tech mb-8 tracking-[0.2em]">
+                        <span class="relative flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-navyMain opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-navyMain"></span>
+                        </span>
+                        <span>PRECISION PERCEPTION | EST. 2024</span>
                     </div>
-                    <div class="col-lg-8 align-self-baseline">
-<!--                         <p class="text-white-75 mb-5">我們不是系統供應商，而是您的產線神經外科醫生</p> -->
-                        <a class="btn btn-primary btn-xl" href="#about">瞭解更多</a>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <!-- About-->
-        <section class="page-section bg-primary" id="about">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-8 text-center">
-                        <h2 class="text-white mt-0">當傳統巡檢還在依賴經驗，我們已實現98%決策數據化</h2>
-                        <hr class="divider divider-light" />
-<!--                         <p class="text-white-75 mb-4">能源脈搏監測系統：揪出15%隱性能耗黑洞<br/> 視覺化生產透視鏡：0.02mm級瑕疵無損檢測<br/> 設備健康預警模型：提前72小時預判故障風險安全<br/>態勢感知中樞：建構三維空間風險熱力圖</p> -->
-                        <a class="btn btn-light btn-xl" href="#services">與研楷合作</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Services-->
-        <section class="page-section" id="services">
-            <div class="container px-4 px-lg-5">
-                <h2 class="text-center mt-0">服務項目</h2>
-                <hr class="divider" />
-                <div class="row gx-4 gx-lg-5">
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <div class="mb-2"><i class="bi-thermometer fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">【能源管理智能中樞】</h3>
-                            <p class="text-muted mb-0">「讓電錶數字會說話的能源CT掃描」<br/> √ 動態負載平衡技術 <br/> √ 生產排程節能演算法 <br/> √ 碳流可視化儀表板</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <div class="mb-2"><i class="bi-camera-video fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">【實驗室儀器服務】</h3>
-                            <p class="text-muted mb-0">「給機器裝上會自學的工業之眼」<br/>√ 光學與量測的多項校驗服務 <br/>√ 轉移off-line 至In-line 平台 <br/>√ 跨學界技轉至業界的產學開發</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <div class="mb-2"><i class="bi-cpu fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">【產線物聯神經網絡】</h3>
-                            <p class="text-muted mb-0">「從自動到系統智動的拼圖」<br/>√ 多協議設備通訊閘道 <br/>√ 離散事件仿真模型 <br/>√ OEE提升決策樹</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                                <div class="mb-2"><i class="bi-chat-right-text fs-1 text-primary"></i></div>
-                                <h3 class="h4 mb-2">【安全智能防控系統】</h3>
-                                <p class="text-muted mb-0">「給工廠裝上會安全免疫系統」<br/>√ 人員動態生物辨識 <br/>√ 危化品洩漏聲紋捕捉 <br/>√ 三維空間逃逸路徑模擬<br/>√ 自動化緊急斷聯機制 <br/>√ 合規性風險自檢模組</p>
+                    <h1 class="text-5xl md:text-8xl font-bold text-navyMain leading-[1.1] mb-8 tracking-tight">
+                        精準感知<br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-navyMain to-slate-500">智能檢測</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-slate-700 max-w-2xl mb-12 leading-relaxed font-light">
+                        「定義工業熱顯新標準」<br>
+                        <span class="text-base text-gray-500">整合檢測相關硬體與 AI/ML 深度學習分析，為半導體與能源產業提供數據驅動的關鍵決策。</span>
+                    </p>
+                    <div class="flex flex-wrap gap-6 items-center">
+                        <a href="#products" class="bg-navyMain text-white px-10 py-5 font-bold hover:bg-slate-700 transition flex items-center space-x-3 rounded-sm shadow-md">
+                            <span>探索產品 / EXPLORE PRODUCTS</span>
+                            <i class="fas fa-chevron-right text-xs"></i>
+                        </a>
+                        <div class="flex items-center space-x-8 pl-4 border-l border-slate-300">
+                            <div>
+                                <div class="text-2xl font-bold text-navyMain font-tech">2024</div>
+                                <div class="text-[10px] text-slate-400 uppercase">Founded</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-navyMain font-tech">LAB</div>
+                                <div class="text-[10px] text-slate-400 uppercase">Consultancy</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Portfolio-->
-        <div id="portfolio">
-            <div class="container-fluid p-0">
-                <div class="row g-0">
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/1.jpg" title="影像重建算法">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/1.jpg" alt="影像重建算法" />
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50"></div>
-                                <div class="project-name">半導體封裝廠：年意外停機時數從436→39小時</div>
-                            </div>
-                        </a>
+
+        <div class="py-16 bg-navyLight border-y border-slate-200 overflow-hidden">
+            <div class="logo-slider">
+                <div class="flex items-center justify-center w-[250px] grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition cursor-default"><span class="text-2xl font-bold text-navyMain font-tech">TSMC</span></div>
+                <div class="flex items-center justify-center w-[250px] grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition cursor-default"><span class="text-2xl font-bold text-navyMain font-tech">ITRI</span></div>
+                <div class="flex items-center justify-center w-[250px] grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition cursor-default"><span class="text-2xl font-bold text-navyMain font-tech">CPC </span></div>
+                <div class="flex items-center justify-center w-[250px] grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition cursor-default"><span class="text-2xl font-bold text-navyMain font-tech">TAIPOWER</span></div>
+                <div class="flex items-center justify-center w-[250px] grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition cursor-default"><span class="text-2xl font-bold text-navyMain font-tech">GE POWER</span></div>
+                <div class="flex items-center justify-center w-[250px] grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition cursor-default"><span class="text-2xl font-bold text-navyMain font-tech">UMC</span></div>
+                <div class="flex items-center justify-center w-[250px] grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition cursor-default"><span class="text-2xl font-bold text-navyMain font-tech">ASE GROUP</span></div>
+                <div class="flex items-center justify-center w-[250px] grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition cursor-default"><span class="text-2xl font-bold text-navyMain font-tech">TSMC</span></div>
+                <div class="flex items-center justify-center w-[250px] grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition cursor-default"><span class="text-2xl font-bold text-navyMain font-tech">CPC </span></div>
+                <div class="flex items-center justify-center w-[250px] grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition cursor-default"><span class="text-2xl font-bold text-navyMain font-tech">TAIPOWER</span></div>
+            </div>
+        </div>
+    </main>
+
+    <main id="view-about" class="page-view pt-32">
+        <div class="max-w-7xl mx-auto px-6 pb-20">
+            <header class="mb-20">
+                <h2 class="text-xs font-tech text-slate-400 tracking-[0.4em] mb-4 uppercase">Corporate Background / 發展脈絡</h2>
+                <h3 class="text-5xl font-bold text-navyMain mb-6">傳承精密，定義未來</h3>
+                <div class="minimal-line w-32"></div>
+            </header>
+            
+            <div class="grid md:grid-cols-2 gap-20 items-center">
+                <div class="space-y-6 text-slate-600 text-lg leading-relaxed">
+                    <p>
+                        <span class="text-navyMain font-bold">Aperture Science Co., Ltd.</span> 核心團隊起源於「半導體實驗室量測儀器」開發，在追求奈米級精度與數據穩定性的環境中，我們傳承了精密檢測的基因。
+                    </p>
+                    <p>
+                        面對工業 4.0 的挑戰，我們將紅外線熱像技術與 AI (ML/DL) 影像識別深度整合，從被動觀測轉向主動分析與趨勢預測。
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 mt-10">
+                        <div class="p-6 bg-navyLight border-l-2 border-navyMain rounded-sm shadow-sm">
+                            <h4 class="text-navyMain font-bold mb-2">軟硬體一體化</h4>
+                            <p class="text-sm text-slate-500">自研算法無縫適配高階感測器，確保數據解析度最大化。</p>
+                        </div>
+                        <div class="p-6 bg-navyLight border-l-2 border-navyMain rounded-sm shadow-sm">
+                            <h4 class="text-navyMain font-bold mb-2">顧問式服務</h4>
+                            <p class="text-sm text-slate-500">我們不只販售硬體，更提供針對產線痛點的解決方案。</p>
+                        </div>
                     </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/2.jpg" title="設備熱異常檢測">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/2.jpg" alt="熱成像儀" />
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50"></div>
-                                <div class="project-name">燃氣電廠案例：非計劃停機時數下降41%</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/3.jpg" title="能源效率監測">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/3.jpg" alt="熱成像儀" />
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50"></div>
-                                <div class="project-name">某汽車部件廠案例：11個月回收智能化改造成本</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/4.jpg" title="多層缺陷分析">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/4.jpg" alt="3D量測" />
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50"></div>
-                                <div class="project-name">某電子組裝廠實測：誤判率從2.1%降至0.17%</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/5.jpg" title="HVAC系統診斷">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/5.jpg" alt="飛拍視覺整合" />
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50"></div>
-                                <div class="project-name">食品加工龍頭：能源密度指標下降28%</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/6.jpg" title="熱成像溫度分析">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/6.jpg" alt="熱成像儀" />
-                            <div class="portfolio-box-caption p-3">
-                                <div class="project-category text-white-50"></div>
-                                <div class="project-name">某化工廠實測：重大事故潛在風險下降67%</div>
-                            </div>
-                        </a>
+                </div>
+                <div class="relative group w-full h-[400px] rounded-lg overflow-hidden tech-border-accent shadow-xl bg-gradient-to-br from-navyMain to-slate-700 flex items-center justify-center">
+                    <img src="Image2.jpg" 
+                         onerror="this.src='Image2.JPG'; this.onerror=function(){ this.src='Image2.png'; this.onerror=null; };"
+                         class="absolute inset-0 w-full h-full object-cover z-10" 
+                         alt="Team Discussion">
+                    <div class="text-center p-6 text-white/80 z-0">
+                        <i class="fas fa-users text-4xl mb-3"></i>
+                        <div class="font-tech text-sm tracking-widest uppercase">Aperture Science Team</div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- 懸浮按鈕 -->
-        <!-- <div class="fixed-bottom pe-4 pb-4" style="z-index:9999">
-            <div class="d-flex justify-content-end">
-              <a href="#contact" class="btn btn-danger btn-lg shadow-lg rounded-pill">
-                <i class="bi-rocket-takeoff me-2"></i>免費產線健診
-              </a>
-            </div>
-          </div> -->
-        <!-- Contact-->
-        <section class="page-section" id="contact">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-8 col-xl-6 text-center">
-                        <h2 class="mt-0">聯絡我們</h2>
-                        <hr class="divider" />
-                        <p class="text-muted mb-5">聯繫我們，讓我們的專業技術幫助您精準洞察每個細節。</p>
+    </main>
+
+    <main id="view-products" class="page-view pt-32">
+        <div class="max-w-7xl mx-auto px-6 pb-20">
+            <header class="mb-16">
+                <h2 class="text-xs font-tech text-slate-400 tracking-[0.4em] mb-4 uppercase">Solutions & Products / 產品方案</h2>
+                <h3 class="text-5xl font-bold text-navyMain mb-6">全方位工業感測矩陣</h3>
+                <p class="text-slate-600 max-w-2xl font-light">整合手持式紅外線熱像技術與深度的 ML/DL 影像分析，為企業打造可靠的「工業之眼」。</p>
+            </header>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <a href="#products-instruments" class="group block relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md hover:shadow-xl transition-all duration-300">
+                    <div class="h-80 w-full overflow-hidden relative bg-slate-100 flex items-center justify-center">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navyMain/40 to-transparent z-10 opacity-60 group-hover:opacity-40 transition-opacity"></div>
+                        <img src="Image1.jpg" 
+                             onerror="this.src='Image1.JPG'; this.onerror=null;"
+                             alt="工業與半導體儀器" 
+                             class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
-                </div>
-                <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
-                    <div class="col-lg-6">
-                        </form>
+                    <div class="p-8">
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="text-2xl font-bold text-navyMain">一. 工業 / 半導體儀器類別</h4>
+                            <i class="fas fa-arrow-right text-slate-400 group-hover:text-navyMain transition-colors"></i>
+                        </div>
+                        <p class="text-slate-600 text-sm font-light leading-relaxed">包含桌上型精密量測、穿透式 X光檢測（X-ray & IR）、設備品保工具與尖端紅外線量測儀器解決方案。</p>
                     </div>
-                </div>
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-lg-4 text-center mb-5 mb-lg-0">
-                        <i class="bi-envelope fs-2 mb-3 text-muted"></i>
-                        <a href="mailto:Admin@Aperturescience.com.tw">Admin@Aperturescience.com.tw</a>                    </div>
-                </div>
+                </a>
+
+                <a href="#products-ai" class="group block relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md hover:shadow-xl transition-all duration-300">
+                    <div class="h-80 w-full overflow-hidden relative">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navyMain/40 to-transparent z-10 opacity-60 group-hover:opacity-40 transition-opacity"></div>
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800" class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="text-2xl font-bold text-navyMain">二. ML / DL 影像分析服務</h4>
+                            <i class="fas fa-arrow-right text-slate-400 group-hover:text-navyMain transition-colors"></i>
+                        </div>
+                        <p class="text-slate-600 text-sm font-light leading-relaxed">結合深度學習演算法，提供晶圓缺陷識別、複雜封裝熱場模擬、異質材料界面熱傳導分析及客製化軟體整合。</p>
+                    </div>
+                </a>
             </div>
-        </section>
+        </div>
+    </main>
 
+    <main id="view-products-instruments" class="page-view pt-32 bg-navyLight">
+        <div class="max-w-7xl mx-auto px-6 pb-20">
+            <header class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div>
+                    <a href="#products" class="inline-flex items-center text-sm text-navyMain hover:underline font-bold mb-4"><i class="fas fa-chevron-left mr-2 text-xs"></i> 返回產品方案目錄</a>
+                    <h2 class="text-xs font-tech text-slate-400 tracking-[0.4em] mb-2 uppercase">Category / 儀器設備</h2>
+                    <h3 class="text-4xl font-bold text-navyMain">工業 / 半導體儀器類別</h3>
+                </div>
+                <p class="text-slate-500 text-sm max-w-md font-light">Aperture Science 作為高德智感（Guide Sensmart）授權代理商與自研特殊規格開發商，提供全方位感測矩陣。</p>
+            </header>
 
-        <!-- Footer-->
-       
-        
-
-        <footer class="bg-light py-5">
-            
-            <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2025 - 研楷有限公司</div></div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- SimpleLightbox plugin JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-        
-        
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
                 
-                <!-- 其他導航欄內容 -->
-            </div>
-        </nav>
+                <div class="bg-white rounded-xl border border-slate-200 p-8 shadow-sm hover:shadow-md hover:border-navyMain transition-all duration-300 flex flex-col justify-between min-h-[320px]">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-navyMain/5 text-navyMain text-[10px] font-bold px-2.5 py-1 font-tech tracking-wider rounded">Metrology & Inspection</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-navyMain mb-4">1. 桌上型量測與穿透式儀器 (Xray & IR)</h4>
+                        <p class="text-slate-600 text-sm font-light leading-relaxed mb-6">專為產線與實驗室打造的高精度穿透式無損點檢儀器。適合高負載、高幀率動態與高精密熱點檢測。</p>
+                    </div>
+                    <div class="text-xs text-slate-400 border-t border-slate-100 pt-4 font-light">
+                        <strong>適用領域：</strong>實驗室特規高精度、高幀率動態分析
+                    </div>
+                </div>
 
-    </body>
+                <div class="bg-white rounded-xl border border-slate-200 p-8 shadow-sm hover:shadow-md hover:border-navyMain transition-all duration-300 flex flex-col justify-between min-h-[320px]">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-navyMain/5 text-navyMain text-[10px] font-bold px-2.5 py-1 font-tech tracking-wider rounded">QUALITY ASSURANCE</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-navyMain mb-4">2. X光設備品保工具</h4>
+                        <p class="text-slate-600 text-sm font-light leading-relaxed mb-6">針對半導體封裝與工業級 X-ray 設備提供標準化校正、劑量監測與影像品保測試工具，確保量測穩定性。</p>
+                    </div>
+                    <div class="text-xs text-slate-400 border-t border-slate-100 pt-4 font-light">
+                        <strong>適用領域：</strong>半導體 NPI 階段、設備精度校正
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl border border-slate-200 p-8 shadow-sm hover:shadow-md hover:border-navyMain transition-all duration-300 flex flex-col justify-between min-h-[320px]">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-navyMain/5 text-navyMain text-[10px] font-bold px-2.5 py-1 font-tech tracking-wider rounded">GUIDE AUTHORIZED</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-navyMain mb-4">3. 紅外線量測儀器</h4>
+                        <p class="text-slate-600 text-sm font-light leading-relaxed mb-6">手持式與定點巡檢紅外線熱像儀矩陣。包含入門巡檢 E 系列、電力維護 H 系列與旗艦級高溫監控 PT 系列。</p>
+                    </div>
+                    <div class="text-xs text-slate-400 border-t border-slate-100 pt-4 font-light">
+                        <strong>原廠授權：</strong>高德智感 Guide Sensmart 全系列 / AP_G 泛用型
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <main id="view-products-ai" class="page-view pt-32">
+        <div class="max-w-7xl mx-auto px-6 pb-20">
+            <header class="mb-12">
+                <a href="#products" class="inline-flex items-center text-sm text-navyMain hover:underline font-bold mb-4"><i class="fas fa-chevron-left mr-2 text-xs"></i> 返回產品方案目錄</a>
+                <h2 class="text-xs font-tech text-slate-400 tracking-[0.4em] mb-2 uppercase">Advanced Analytics / 人工智慧服務</h2>
+                <h3 class="text-4xl font-bold text-navyMain mb-4">ML / DL 影像分析服務</h3>
+                <p class="text-slate-600 max-w-2xl font-light">自主研與深度學習核心算法，提供高維度工業視覺自動化分析，全方位優化產線良率與缺陷點檢。</p>
+            </header>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="p-10 bg-navyLight border border-slate-200 rounded-2xl shadow-sm hover:border-navyMain transition-all duration-300">
+                    <div class="flex items-center space-x-5 mb-8 pb-6 border-b border-slate-200">
+                        <div class="w-14 h-14 bg-navyMain text-white rounded-xl flex items-center justify-center text-xl shadow-md"><i class="fas fa-brain"></i></div>
+                        <div>
+                            <h4 class="text-2xl font-bold text-navyMain">Semi Application & Lab Application Related</h4>
+                            <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">智慧製造核心視覺檢測矩陣</div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded-xl border border-slate-100 flex items-center space-x-3">
+                            <span class="w-1.5 h-1.5 bg-navyMain rounded-full flex-shrink-0"></span>
+                            <span class="text-navyText text-sm font-medium tracking-wide">Spot and Seam Welding Inspection</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-slate-100 flex items-center space-x-3">
+                            <span class="w-1.5 h-1.5 bg-navyMain rounded-full flex-shrink-0"></span>
+                            <span class="text-navyText text-sm font-medium tracking-wide">Material Quality Inspection / Detection</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-slate-100 flex items-center space-x-3">
+                            <span class="w-1.5 h-1.5 bg-navyMain rounded-full flex-shrink-0"></span>
+                            <span class="text-navyText text-sm font-medium tracking-wide">Glue Bead Inspection and Measurement</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-slate-100 flex items-center space-x-3">
+                            <span class="w-1.5 h-1.5 bg-navyMain rounded-full flex-shrink-0"></span>
+                            <span class="text-navyText text-sm font-medium tracking-wide">Packaging Label Inspection & Quality Verification</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-slate-100 flex items-center space-x-3">
+                            <span class="w-1.5 h-1.5 bg-navyMain rounded-full flex-shrink-0"></span>
+                            <span class="text-navyText text-sm font-medium tracking-wide">Product Seal Integrity & Packaging Quality Verification</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-slate-100 flex items-center space-x-3">
+                            <span class="w-1.5 h-1.5 bg-navyMain rounded-full flex-shrink-0"></span>
+                            <span class="text-navyText text-sm font-medium tracking-wide">Packaging Integrity and Inspection</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-slate-100 flex items-center space-x-3">
+                            <span class="w-1.5 h-1.5 bg-navyMain rounded-full flex-shrink-0"></span>
+                            <span class="text-navyText text-sm font-medium tracking-wide">PCB Inspection and Quality Control</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-slate-100 flex items-center space-x-3">
+                            <span class="w-1.5 h-1.5 bg-navyMain rounded-full flex-shrink-0"></span>
+                            <span class="text-navyText text-sm font-medium tracking-wide">Welding Inspection</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <main id="view-industries" class="page-view pt-32">
+        <div class="max-w-7xl mx-auto px-6 pb-20">
+            <header class="mb-20 text-center">
+                <h2 class="text-xs font-tech text-slate-400 tracking-[0.4em] mb-4 uppercase">Target Industries / 產業應用</h2>
+                <h3 class="text-5xl font-bold text-navyMain mb-6">跨足尖端領域的精密監測</h3>
+            </header>
+            
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="group cursor-default">
+                    <div class="overflow-hidden rounded-lg mb-6 border border-slate-200 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600" class="group-hover:scale-105 transition duration-500 h-64 w-full object-cover">
+                    </div>
+                    <h4 class="text-xl font-bold text-navyMain mb-4">半導體產業</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed font-light">提供製程中封裝測試與 Wafer 階段的非接觸式溫度 analysis，協助排除潛在熱點異常點檢。</p>
+                </div>
+                <div class="group cursor-default">
+                    <div class="overflow-hidden rounded-lg mb-6 border border-slate-200 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=600" class="group-hover:scale-105 transition duration-500 h-64 w-full object-cover">
+                    </div>
+                    <h4 class="text-xl font-bold text-navyMain mb-4">智慧能源</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed font-light">變壓器、電力機房與儲能設施的 24/7 自動化熱顯巡檢，有效預防過熱引發之災損。</p>
+                </div>
+                <div class="group cursor-default">
+                    <div class="overflow-hidden rounded-lg mb-6 border border-slate-200 shadow-sm relative">
+                        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=600" class="group-hover:scale-105 transition duration-500 h-64 w-full object-cover object-center" alt="High-tech Cleanroom Laboratory">
+                    </div>
+                    <h4 class="text-xl font-bold text-navyMain mb-4">研發實驗室</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed font-light">輔助 NPI (新產品導入) 階段的熱散布驗證，協助將實驗數據轉化為工業生產標準。</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <main id="view-contact" class="page-view pt-32">
+        <div class="max-w-7xl mx-auto px-6 pb-20">
+            <div class="grid md:grid-cols-2 gap-20">
+                <div>
+                    <h2 class="text-5xl font-bold text-navyMain mb-8">專案諮詢預約</h2>
+                    <p class="text-slate-600 mb-12 text-lg font-light">Aperture Science 顧問團隊將針對您的應用場景提供專業的軟硬體建議。</p>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-start space-x-5">
+                            <div class="w-12 h-12 bg-navyLight rounded flex items-center justify-center text-navyMain border border-slate-200"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <div class="text-[10px] text-slate-400 font-tech uppercase">Official Email</div>
+                                <div class="text-navyText text-xl font-light" id="display-email">Admin [at] Aperturescience.com.tw</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-5">
+                            <div class="w-12 h-12 bg-navyLight rounded flex items-center justify-center text-navyMain border border-slate-200"><i class="fas fa-phone"></i></div>
+                            <div>
+                                <div class="text-[10px] text-slate-400 font-tech uppercase">Consultant HotLine</div>
+                                <div class="text-navyText text-xl font-light">+886 933-027-706</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-5">
+                            <div class="w-12 h-12 bg-navyLight rounded flex items-center justify-center text-navyMain border border-slate-200"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <div class="text-[10px] text-slate-400 font-tech uppercase">Headquarters</div>
+                                <div class="text-navyText text-xl font-light">桃園市桃園區中正路1092號25樓</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-10 tech-border-accent rounded-lg shadow-xl border border-slate-100">
+                    <form id="contact-form" class="space-y-6">
+                        <div class="hp-field">
+                            <label>如果您是人類，請將此欄位留空：</label>
+                            <input type="text" id="hp_name" name="hp_name" tabindex="-1" autocomplete="off">
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <input type="text" id="company" required placeholder="公司名稱 / Company" class="w-full bg-navyLight border border-slate-200 p-4 text-navyText focus:bg-white focus:border-navyMain outline-none rounded transition placeholder-slate-400">
+                            <input type="text" id="contact_name" required placeholder="聯絡人 / Contact Name" class="w-full bg-navyLight border border-slate-200 p-4 text-navyText focus:bg-white focus:border-navyMain outline-none rounded transition placeholder-slate-400">
+                        </div>
+                        <select id="inquiry_type" class="w-full bg-navyLight border border-slate-200 p-4 text-navyText focus:bg-white focus:border-navyMain outline-none rounded cursor-pointer">
+                            <option value="General Inquiry" selected>請選擇需求類別 / Inquiry Type</option>
+                            <option value="Hardware Inquiry">硬體採購 (Hardware Inquiry)</option>
+                            <option value="Software Development">軟體開發 (Software Development)</option>
+                            <option value="Project Design">專案設計 (Project Design)</option>
+                            <option value="After-sales Service">售後服務 (After-sales Service)</option>
+                        </select>
+                        <input type="email" id="email" required placeholder="電子信箱 / Email Address" class="w-full bg-navyLight border border-slate-200 p-4 text-navyText focus:bg-white focus:border-navyMain outline-none rounded transition placeholder-slate-400">
+                        <textarea id="message" rows="4" required placeholder="需求內容描述 / Message Description" class="w-full bg-navyLight border border-slate-200 p-4 text-navyText focus:bg-white focus:border-navyMain outline-none rounded transition placeholder-slate-400"></textarea>
+                        
+                        <div id="form-status" class="hidden text-sm p-4 rounded-sm bg-navyLight text-navyMain border border-slate-200 mb-4">
+                            正在準備郵件... 系統將自動打開您的電子郵件軟體。
+                        </div>
+
+                        <button type="submit" class="w-full bg-navyMain text-white font-bold py-5 hover:bg-slate-700 transition tracking-[0.2em] uppercase rounded-sm shadow-md">Submit Request / 傳送諮詢</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <main id="view-privacy" class="page-view pt-32">
+        <div class="max-w-4xl mx-auto px-6 pb-20">
+            <header class="mb-12 border-b border-slate-200 pb-8">
+                <h2 class="text-4xl font-bold text-navyMain mb-4 uppercase font-tech">Privacy Policy / <span class="text-slate-500">隱私權保護政策</span></h2>
+                <p class="text-slate-400">最後更新日期：2026 年 5 月</p>
+            </header>
+            <div class="legal-content">
+                <h4>1. 個人資料之蒐集</h4>
+                <p>研楷有限公司（以下簡稱本公司）蒐集您的個人資料（如姓名、公司名稱、電話及電子郵件），僅限於提供產品諮詢、專案評估與後續服務之用。除非法律要求或經您授权，我們絕不會將您的資料提供給第三方。</p>
+                <h4>2. 資料儲存與安全</h4>
+                <p>我們致力於確保您的個人資料安全，並採取符合工業標準的加密與防火牆技術，防止未經授權的存取與洩露。</p>
+                <h4>3. 使用者權利</h4>
+                <p>您可以隨時聯絡本公司要求查詢、閱覽、補充或更正您的個人資料，亦可要求停止蒐集或刪除相關資訊。</p>
+            </div>
+            <a href="#home" class="inline-block mt-12 text-navyMain hover:underline font-bold">← 返回首頁 BACK TO HOME</a>
+        </div>
+    </main>
+
+    <main id="view-terms" class="page-view pt-32">
+        <div class="max-w-4xl mx-auto px-6 pb-20">
+            <header class="mb-12 border-b border-slate-200 pb-8">
+                <h2 class="text-4xl font-bold text-navyMain mb-4 uppercase font-tech">Terms of Service / <span class="text-slate-500">服務條款</span></h2>
+                <p class="text-slate-400">最後更新日期：2026 年 5 月</p>
+            </header>
+            <div class="legal-content">
+                <h4>1. 產品資訊免責聲明</h4>
+                <p>本網站所載之產品規格、軟體功能說明與測試數據僅供參考。正式之技術規格與服務範圍，應以本公司簽署之正式報價單（Quotation）或合約文件為準。</p>
+                <h4>2. 智慧財產權</h4>
+                <p>本網站所有內容（包含但不限於文字、圖片、標誌、專利技術描述）均受智慧財產權法保護。未經書面許可，嚴禁任何形式的轉載、重製或商業利用。</p>
+                <h4>3. 法律管轄</h4>
+                <p>本服務條款之解釋與適用，均依中華民國法律為準據。如因本服務產生爭議，合意以台灣桃園地方法院為第一審管轄法院。</p>
+            </div>
+            <a href="#home" class="inline-block mt-12 text-navyMain hover:underline font-bold">← 返回首頁 BACK TO HOME</a>
+        </div>
+    </main>
+
+    <footer class="py-16 bg-navyLight border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-10 md:mb-0">
+                    <div class="text-2xl font-bold font-tech text-navyMain uppercase mb-2">Aperture <span class="text-slate-500 font-light">Science</span></div>
+                    <div class="text-xs text-slate-400">© 2026 Aperture Science Co., Ltd. (研楷有限公司) 版權所有</div>
+                </div>
+                <div class="flex space-x-8 text-[11px] font-bold tracking-widest text-slate-500 uppercase">
+                    <a href="#about" class="hover:text-navyMain transition">About</a>
+                    <a href="#products" class="hover:text-navyMain transition">Solutions</a>
+                    <a href="#privacy" class="hover:text-navyMain transition">Privacy Policy</a>
+                    <a href="#terms" class="hover:text-navyMain transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const ePrefix = "Admin";
+        const eDomain = "Aperturescience.com.tw";
+        const targetEmail = ePrefix + "@" + eDomain;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const emailDisplay = document.getElementById('display-email');
+            if(emailDisplay) emailDisplay.innerText = targetEmail;
+        });
+
+        function sanitizeInput(str) {
+            const temp = document.createElement('div');
+            temp.textContent = str;
+            return temp.innerHTML.replace(/[<>'"&]/g, ''); 
+        }
+
+        function handleRoute() {
+            const hash = window.location.hash.replace('#', '') || 'home';
+            document.querySelectorAll('.page-view').forEach(view => view.classList.remove('active'));
+            
+            const activeView = document.getElementById(`view-${hash}`);
+            if (activeView) {
+                activeView.classList.add('active');
+            } else {
+                document.getElementById('view-home').classList.add('active');
+            }
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                const targetHash = link.getAttribute('href');
+                if (targetHash === '#products') {
+                    link.classList.toggle('active', hash.startsWith('products'));
+                } else {
+                    link.classList.toggle('active', targetHash === `#${hash}`);
+                }
+            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.addEventListener('hashchange', handleRoute);
+        window.addEventListener('load', handleRoute);
+
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav');
+            const navContainer = document.getElementById('nav-container');
+            if (window.scrollY > 50) {
+                if(navContainer) navContainer.classList.replace('h-20', 'h-16');
+                if(nav) nav.classList.add('shadow-md');
+            } else {
+                if(navContainer) navContainer.classList.replace('h-16', 'h-20');
+                if(nav) nav.classList.remove('shadow-md');
+            }
+        });
+
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const honeypot = document.getElementById('hp_name').value;
+            if (honeypot) {
+                console.warn("Spam detected.");
+                return;
+            }
+
+            const company = sanitizeInput(document.getElementById('company').value);
+            const name = sanitizeInput(document.getElementById('contact_name').value);
+            const type = sanitizeInput(document.getElementById('inquiry_type').value);
+            const email = sanitizeInput(document.getElementById('email').value);
+            const msg = sanitizeInput(document.getElementById('message').value);
+            
+            const statusBox = document.getElementById('form-status');
+            statusBox.classList.remove('hidden');
+
+            const subject = encodeURIComponent(`[Aperture Science 官網諮詢] - ${type} - ${company}`);
+            const body = encodeURIComponent(
+                `公司名稱: ${company}\n` +
+                `聯絡人: ${name}\n` +
+                `回覆信箱: ${email}\n` +
+                `諮詢類型: ${type}\n` +
+                `----------------------------------------\n` +
+                `需求描述:\n${msg}\n\n` +
+                `-- 此郵件由 www.aperturescience.com.tw 官方表單產出 --`
+            );
+
+            const mailtoLink = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
+            
+            setTimeout(() => {
+                window.location.href = mailtoLink;
+                statusBox.innerText = `已嘗試開啟您的郵件軟體。若無反應，請手動寄信至 ${targetEmail}`;
+            }, 800);
+        });
+    </script>
+</body>
 </html>
