@@ -16,10 +16,10 @@
             theme: {
                 extend: {
                     colors: {
-                        navyMain: '#002d5a',       /* 洗鍊深海軍藍 */
-                        navyLight: '#f4f7fa',      /* 明亮溫暖灰藍底 */
-                        navyText: '#1e293b',       /* 深石板灰字體 */
-                        slateGray: '#64748b',      /* 洗鍊輔助灰 */
+                        navyMain: '#002d5a',
+                        navyLight: '#f4f7fa',
+                        navyText: '#1e293b',
+                        slateGray: '#64748b',
                     },
                     fontFamily: {
                         sans: ['Noto Sans TC', 'sans-serif'],
@@ -93,6 +93,7 @@
         </div>
     </nav>
 
+    <!-- HOME -->
     <main id="view-home" class="page-view pt-20 active">
         <section class="relative min-h-screen flex items-center hero-bg">
             <div class="max-w-7xl mx-auto px-6 relative z-10">
@@ -148,6 +149,7 @@
         </div>
     </main>
 
+    <!-- ABOUT -->
     <main id="view-about" class="page-view pt-32">
         <div class="max-w-7xl mx-auto px-6 pb-20">
             <header class="mb-20">
@@ -189,6 +191,7 @@
         </div>
     </main>
 
+    <!-- PRODUCTS -->
     <main id="view-products" class="page-view pt-32">
         <div class="max-w-7xl mx-auto px-6 pb-20">
             <header class="mb-16">
@@ -201,8 +204,7 @@
                 <a href="#products-instruments" class="group block relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md hover:shadow-xl transition-all duration-300">
                     <div class="h-80 w-full overflow-hidden relative bg-slate-100 flex items-center justify-center">
                         <div class="absolute inset-0 bg-gradient-to-t from-navyMain/40 to-transparent z-10 opacity-60 group-hover:opacity-40 transition-opacity"></div>
-                        <img src="Image1.jpg" 
-                             onerror="this.src='Image1.JPG'; this.onerror=null;"
+                        <img src="Image6.png" 
                              alt="工業與半導體儀器" 
                              class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
@@ -232,6 +234,7 @@
         </div>
     </main>
 
+    <!-- PRODUCTS - INSTRUMENTS -->
     <main id="view-products-instruments" class="page-view pt-32 bg-navyLight">
         <div class="max-w-7xl mx-auto px-6 pb-20">
             <header class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
@@ -244,43 +247,77 @@
             </header>
 
             <div class="grid md:grid-cols-3 gap-8 mb-16">
-                
-                <div class="bg-white rounded-xl border border-slate-200 p-8 shadow-sm hover:shadow-md hover:border-navyMain transition-all duration-300 flex flex-col justify-between min-h-[320px]">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="bg-navyMain/5 text-navyMain text-[10px] font-bold px-2.5 py-1 font-tech tracking-wider rounded">Metrology & Inspection</span>
-                        </div>
-                        <h4 class="text-xl font-bold text-navyMain mb-4">1. 桌上型量測與穿透式儀器 (Xray & IR)</h4>
-                        <p class="text-slate-600 text-sm font-light leading-relaxed mb-6">專為產線與實驗室打造的高精度穿透式無損點檢儀器。適合高負載、高幀率動態與高精密熱點檢測。</p>
+
+                <!-- 卡片 1：紅外線熱像儀（可點擊，含產品圖淡出） -->
+                <a href="#products-ir" class="group bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md hover:border-navyMain transition-all duration-300 flex flex-col justify-between min-h-[320px] overflow-hidden">
+                    <!-- 產品圖區：黑底 + object-contain 保持比例 + 四邊淡出 -->
+                    <div class="relative h-40 bg-black flex-shrink-0 flex items-center justify-center overflow-hidden">
+                        <img src="Image3.png"
+                             alt="Guide 紅外線熱像儀"
+                             class="h-full w-full object-cover object-right group-hover:scale-105 transition-transform duration-500">
+                        <!-- 四邊淡出遮罩 -->
+                        <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to bottom, black 0%, transparent 25%, transparent 70%, black 100%);"></div>
+                        <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to right, black 0%, transparent 20%, transparent 80%, black 100%);"></div>
+                        <!-- 底部銜接白色卡片 -->
+                        <div class="absolute bottom-0 left-0 right-0 h-8 pointer-events-none" style="background: linear-gradient(to bottom, transparent, white);"></div>
                     </div>
-                    <div class="text-xs text-slate-400 border-t border-slate-100 pt-4 font-light">
-                        <strong>適用領域：</strong>實驗室特規高精度、高幀率動態分析
+
+                    <div class="px-8 pb-8 flex flex-col flex-1 justify-between pt-3">
+                        <div>
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="bg-navyMain/5 text-navyMain text-[10px] font-bold px-2.5 py-1 font-tech tracking-wider rounded">HIGH NETD</span>
+                                <i class="fas fa-arrow-right text-slate-300 group-hover:text-navyMain transition-colors"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-navyMain mb-4">AI 紅外線智慧熱像儀</h4>
+                            <p class="text-slate-600 text-sm font-light leading-relaxed mb-6">Intelligent Thermal Camera — 手持式與定點巡檢矩陣。包含入門巡檢 E 系列、電力維護 H 系列與旗艦級高溫監控 PT 系列。</p>
+                        </div>
+                        <div class="text-xs text-slate-400 border-t border-slate-100 pt-4 font-light">
+                            <strong>原廠授權：</strong>高德智感 Guide Sensmart 全系列 / AP_G 泛用型
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 卡片 2：桌上型量測與穿透式儀器 -->
+                <div class="bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md hover:border-navyMain transition-all duration-300 flex flex-col justify-between min-h-[320px] overflow-hidden">
+                    <div class="relative h-40 bg-slate-100 flex-shrink-0 overflow-hidden">
+                        <img src="Image7.png"
+                             alt="桌上型量測與穿透式儀器"
+                             class="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute bottom-0 left-0 right-0 h-8 pointer-events-none" style="background: linear-gradient(to bottom, transparent, white);"></div>
+                    </div>
+                    <div class="px-8 pb-8 flex flex-col flex-1 justify-between pt-3">
+                        <div>
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="bg-navyMain/5 text-navyMain text-[10px] font-bold px-2.5 py-1 font-tech tracking-wider rounded">Metrology & Inspection</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-navyMain mb-4">桌上型量測與穿透式儀器 (Xray & IR)</h4>
+                            <p class="text-slate-600 text-sm font-light leading-relaxed mb-6">專為產線與實驗室打造的高精度穿透式無損點檢儀器。適合高負載、高幀率動態與高精密熱點檢測。</p>
+                        </div>
+                        <div class="text-xs text-slate-400 border-t border-slate-100 pt-4 font-light">
+                            <strong>適用領域：</strong>實驗室特規高精度、高幀率動態分析
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-xl border border-slate-200 p-8 shadow-sm hover:shadow-md hover:border-navyMain transition-all duration-300 flex flex-col justify-between min-h-[320px]">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="bg-navyMain/5 text-navyMain text-[10px] font-bold px-2.5 py-1 font-tech tracking-wider rounded">QUALITY ASSURANCE</span>
+                <!-- 卡片 3：X光設備品保工具 -->
+                <div class="bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md hover:border-navyMain transition-all duration-300 flex flex-col justify-between min-h-[320px] overflow-hidden">
+                    <div class="relative h-40 bg-slate-100 flex-shrink-0 overflow-hidden">
+                        <img src="Image4.png"
+                             alt="X光設備品保工具"
+                             class="h-full w-full object-cover object-center transition-transform duration-500">
+                        <div class="absolute bottom-0 left-0 right-0 h-8 pointer-events-none" style="background: linear-gradient(to bottom, transparent, white);"></div>
+                    </div>
+                    <div class="px-8 pb-8 flex flex-col flex-1 justify-between pt-3">
+                        <div>
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="bg-navyMain/5 text-navyMain text-[10px] font-bold px-2.5 py-1 font-tech tracking-wider rounded">QUALITY ASSURANCE</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-navyMain mb-4">X光設備品保工具</h4>
+                            <p class="text-slate-600 text-sm font-light leading-relaxed mb-6">針對半導體封裝與工業級 X-ray 設備提供標準化校正、劑量監測與影像品保測試工具，確保量測穩定性。</p>
                         </div>
-                        <h4 class="text-xl font-bold text-navyMain mb-4">2. X光設備品保工具</h4>
-                        <p class="text-slate-600 text-sm font-light leading-relaxed mb-6">針對半導體封裝與工業級 X-ray 設備提供標準化校正、劑量監測與影像品保測試工具，確保量測穩定性。</p>
-                    </div>
-                    <div class="text-xs text-slate-400 border-t border-slate-100 pt-4 font-light">
-                        <strong>適用領域：</strong>半導體 NPI 階段、設備精度校正
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl border border-slate-200 p-8 shadow-sm hover:shadow-md hover:border-navyMain transition-all duration-300 flex flex-col justify-between min-h-[320px]">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="bg-navyMain/5 text-navyMain text-[10px] font-bold px-2.5 py-1 font-tech tracking-wider rounded">GUIDE AUTHORIZED</span>
+                        <div class="text-xs text-slate-400 border-t border-slate-100 pt-4 font-light">
+                            <strong>適用領域：</strong>半導體 NPI 階段、設備精度校正
                         </div>
-                        <h4 class="text-xl font-bold text-navyMain mb-4">3. 紅外線量測儀器</h4>
-                        <p class="text-slate-600 text-sm font-light leading-relaxed mb-6">手持式與定點巡檢紅外線熱像儀矩陣。包含入門巡檢 E 系列、電力維護 H 系列與旗艦級高溫監控 PT 系列。</p>
-                    </div>
-                    <div class="text-xs text-slate-400 border-t border-slate-100 pt-4 font-light">
-                        <strong>原廠授權：</strong>高德智感 Guide Sensmart 全系列 / AP_G 泛用型
                     </div>
                 </div>
 
@@ -288,6 +325,7 @@
         </div>
     </main>
 
+    <!-- PRODUCTS - AI -->
     <main id="view-products-ai" class="page-view pt-32">
         <div class="max-w-7xl mx-auto px-6 pb-20">
             <header class="mb-12">
@@ -346,6 +384,96 @@
         </div>
     </main>
 
+    <!-- PRODUCTS - IR (新頁面，內容待補) -->
+    <main id="view-products-ir" class="page-view pt-32 bg-navyLight">
+        <div class="max-w-7xl mx-auto px-6 pb-20">
+            <header class="mb-12">
+                <a href="#products-instruments" class="inline-flex items-center text-sm text-navyMain hover:underline font-bold mb-4">
+                    <i class="fas fa-chevron-left mr-2 text-xs"></i> 返回儀器類別
+                </a>
+                <h2 class="text-xs font-tech text-slate-400 tracking-[0.4em] mb-2 uppercase">Infrared Thermography / 紅外線熱像</h2>
+                <h3 class="text-4xl font-bold text-navyMain mb-4">AI 紅外線智慧熱像儀</h3>
+                <p class="text-slate-600 max-w-2xl font-light">Intelligent Thermal Camera — 整合 AI 深度學習與高靈敏度紅外線感測，提供工業級熱像解決方案。</p>
+            </header>
+
+            <div class="grid md:grid-cols-2 gap-10">
+
+                <!-- 框格 1：高德智感 15mK（可點擊外連） -->
+                <a href="https://www.guideir.cn/" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg hover:border-navyMain transition-all duration-300 overflow-hidden flex flex-col">
+                    <div class="bg-gradient-to-br from-navyMain to-slate-700 px-8 pt-8 pb-6 flex-shrink-0">
+                        <div class="inline-flex items-center space-x-2 bg-white/10 border border-white/20 px-3 py-1 rounded text-white text-[10px] font-tech tracking-[0.2em] mb-4">
+                            <span class="w-1.5 h-1.5 bg-red-400 rounded-full"></span>
+                            <span>GUIDE SENSMART AUTHORIZED</span>
+                        </div>
+                        <h4 class="text-2xl font-bold text-white mb-1 flex items-center gap-2">
+                            業界最高靈敏度_高德智感
+                            <i class="fas fa-external-link-alt text-white/50 text-sm group-hover:text-white/90 transition-colors"></i>
+                        </h4>
+                        <div class="text-4xl font-bold font-tech text-red-400 mb-1">15mK</div>
+                        <div class="text-white/60 text-sm font-light">NETD — Noise Equivalent Temperature Difference</div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-1 justify-between">
+                        <div>
+                            <h5 class="text-lg font-bold text-navyMain mb-3">手持式熱像儀 — 高德智感</h5>
+                            <p class="text-slate-600 text-sm font-light leading-relaxed mb-6">
+                                採用業界頂尖 15mK 超高靈敏度感測核心，能精準捕捉微小溫差，適用於半導體熱點排查、電力設備巡檢與精密研發實驗室。
+                            </p>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="bg-navyLight rounded-lg p-3 text-center">
+                                    <div class="text-navyMain font-bold font-tech text-lg">15mK</div>
+                                    <div class="text-slate-400 text-[10px] uppercase tracking-wider">靈敏度 NETD</div>
+                                </div>
+                                <div class="bg-navyLight rounded-lg p-3 text-center">
+                                    <div class="text-navyMain font-bold font-tech text-sm">1280×1024px</div>
+                                    <div class="text-slate-400 text-[10px] uppercase tracking-wider">解析度 Resolution</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6 pt-5 border-t border-slate-100 text-xs text-slate-400 font-light">
+                            <strong>原廠授權：</strong>高德智感 Guide Sensmart APEX Series
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 框格 2：Made in Taiwan -->
+                <div class="group bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg hover:border-navyMain transition-all duration-300 overflow-hidden flex flex-col">
+                    <div class="bg-gradient-to-br from-slate-700 to-slate-900 px-8 pt-8 pb-6 flex-shrink-0">
+                        <div class="inline-flex items-center space-x-2 bg-white/10 border border-white/20 px-3 py-1 rounded text-white text-[10px] font-tech tracking-[0.2em] mb-4">
+                            <span class="w-1.5 h-1.5 bg-green-400 rounded-full"></span>
+                            <span>TAIWAN MADE / 台灣製造</span>
+                        </div>
+                        <h4 class="text-2xl font-bold text-white mb-1">Made in Taiwan</h4>
+                        <div class="text-4xl font-bold font-tech text-green-400 mb-1">AP_G</div>
+                        <div class="text-white/60 text-sm font-light">手持式熱像儀系列 — Handheld Thermal Camera</div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-1 justify-between">
+                        <div>
+                            <h5 class="text-lg font-bold text-navyMain mb-3">台灣自製手持式熱像儀系列</h5>
+                            <p class="text-slate-600 text-sm font-light leading-relaxed mb-6">
+                                由 Aperture Science 在地化生產，在台灣本地生產製造，針對工業巡檢、設備維護與現場快速診斷需求量身打造，提供完整在地技術支援。
+                            </p>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="bg-navyLight rounded-lg p-3 text-center">
+                                    <div class="text-navyMain font-bold font-tech text-lg">MIT</div>
+                                    <div class="text-slate-400 text-[10px] uppercase tracking-wider">台灣製造</div>
+                                </div>
+                                <div class="bg-navyLight rounded-lg p-3 text-center">
+                                    <div class="text-navyMain font-bold font-tech text-lg">OEM</div>
+                                    <div class="text-slate-400 text-[10px] uppercase tracking-wider">客製化開發</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6 pt-5 border-t border-slate-100 text-xs text-slate-400 font-light">
+                            <strong>台灣品牌：</strong>AP_G 泛用型系列 / 客製規格開發可洽詢
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- INDUSTRIES -->
     <main id="view-industries" class="page-view pt-32">
         <div class="max-w-7xl mx-auto px-6 pb-20">
             <header class="mb-20 text-center">
@@ -379,6 +507,7 @@
         </div>
     </main>
 
+    <!-- CONTACT -->
     <main id="view-contact" class="page-view pt-32">
         <div class="max-w-7xl mx-auto px-6 pb-20">
             <div class="grid md:grid-cols-2 gap-20">
@@ -443,6 +572,7 @@
         </div>
     </main>
 
+    <!-- PRIVACY -->
     <main id="view-privacy" class="page-view pt-32">
         <div class="max-w-4xl mx-auto px-6 pb-20">
             <header class="mb-12 border-b border-slate-200 pb-8">
@@ -461,6 +591,7 @@
         </div>
     </main>
 
+    <!-- TERMS -->
     <main id="view-terms" class="page-view pt-32">
         <div class="max-w-4xl mx-auto px-6 pb-20">
             <header class="mb-12 border-b border-slate-200 pb-8">
@@ -479,6 +610,7 @@
         </div>
     </main>
 
+    <!-- FOOTER -->
     <footer class="py-16 bg-navyLight border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
