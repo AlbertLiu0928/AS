@@ -27,7 +27,7 @@ def industries_index():
                         "從晶圓封裝到電力設備，從研發驗證到產線巡檢，依場景選擇合適的熱像方案。", bc_html, "tint")
     body += f'''<div class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-8">
 {industry_card("/industries/semiconductor/", "fa-microchip", "from-navyMain to-slate-700", "半導體產業", "提供製程中封裝測試與 Wafer 階段的非接觸式溫度 analysis，協助排除潛在熱點異常點檢。")}
-{industry_card("/industries/power/", "fa-bolt", "from-slate-700 to-slate-900", "智慧能源與電力", "變壓器、電力機房與儲能設施的 24/7 自動化熱顯巡檢，有效預防過熱引發之災損。")}
+{industry_card("/industries/power/", "fa-bolt", "from-slate-700 to-slate-900", "智慧能源", "變壓器、電力機房與儲能設施的 24/7 自動化熱顯巡檢，有效預防過熱引發之災損。")}
 {industry_card("/industries/lab/", "fa-flask", "from-navyMain to-slate-600", "研發實驗室", "輔助 NPI（新產品導入）階段的熱散布驗證，協助將實驗數據轉化為工業生產標準。")}
 </div>
 '''

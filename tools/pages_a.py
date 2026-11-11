@@ -102,8 +102,8 @@ def home():
 <div class="p-6"><h3 class="font-bold text-navyMain text-lg mb-2">半導體產業</h3><p class="text-sm text-slate-600 leading-relaxed">提供製程中封裝測試與 Wafer 階段的非接觸式溫度 analysis，協助排除潛在熱點異常點檢。</p></div>
 </a>
 <a href="/industries/power/" class="group block bg-white rounded-xl border border-slate-200 overflow-hidden hover:border-navyMain hover:shadow-md transition">
-<div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&amp;fit=crop&amp;q=80&amp;w=600" width="600" height="400" alt="智慧能源與電力設施" class="h-48 w-full object-cover group-hover:scale-105 transition duration-500" loading="lazy"></div>
-<div class="p-6"><h3 class="font-bold text-navyMain text-lg mb-2">智慧能源與電力</h3><p class="text-sm text-slate-600 leading-relaxed">變壓器、電力機房與儲能設施的 24/7 自動化熱顯巡檢，有效預防過熱引發之災損。</p></div>
+<div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&amp;fit=crop&amp;q=80&amp;w=600" width="600" height="400" alt="智慧能源設施" class="h-48 w-full object-cover group-hover:scale-105 transition duration-500" loading="lazy"></div>
+<div class="p-6"><h3 class="font-bold text-navyMain text-lg mb-2">智慧能源</h3><p class="text-sm text-slate-600 leading-relaxed">變壓器、電力機房與儲能設施的 24/7 自動化熱顯巡檢，有效預防過熱引發之災損。</p></div>
 </a>
 <a href="/industries/lab/" class="group block bg-white rounded-xl border border-slate-200 overflow-hidden hover:border-navyMain hover:shadow-md transition">
 <div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&amp;fit=crop&amp;q=80&amp;w=600" width="600" height="400" alt="研發實驗室" class="h-48 w-full object-cover group-hover:scale-105 transition duration-500" loading="lazy"></div>
