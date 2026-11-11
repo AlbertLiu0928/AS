@@ -1,0 +1,27 @@
+# 研楷有限公司 Aperture Science Co., Ltd.
+
+> 研楷有限公司（Aperture Science Co., Ltd.）是位於台灣桃園的手持式紅外線熱像儀與 AI/ML 影像分析服務商，為高德智感（Guide Sensmart，高德紅外 Guide Infrared 旗下）授權代理商，並開發台灣自有品牌 AP_G 系列。服務對象：半導體、智慧能源與電力、研發實驗室。
+
+Contact: +886 933-027-706 ・ 桃園市桃園區中正路1092號25樓 ・ https://aperturescience.com.tw/contact/
+
+## 產品
+- [產品方案總覽](https://aperturescience.com.tw/products/): 手持式熱像儀系列對照與其他方案
+- [APEX 系列](https://aperturescience.com.tw/products/apex-series/): 高靈敏度（15mK NETD、1280×1024）手持式熱像儀
+- [E 系列](https://aperturescience.com.tw/products/e-series/): 入門巡檢
+- [H 系列](https://aperturescience.com.tw/products/h-series/): 電力維護
+- [PT 系列](https://aperturescience.com.tw/products/pt-series/): 旗艦級高溫監控
+- [AP_G 系列](https://aperturescience.com.tw/products/ap-g/): 台灣自有品牌，支援 OEM 與客製
+- [工業／半導體儀器](https://aperturescience.com.tw/products/instruments/): 桌上型量測、穿透式 X-ray & IR、X 光設備品保工具
+
+## 服務
+- [ML／DL 影像分析](https://aperturescience.com.tw/ai-inspection/): 晶圓缺陷識別、封裝熱場模擬、焊接／膠線／PCB 檢測
+
+## 產業應用
+- [半導體熱點檢測](https://aperturescience.com.tw/industries/semiconductor/)
+- [電力與儲能設施熱像巡檢](https://aperturescience.com.tw/industries/power/)
+- [研發實驗室熱散布驗證](https://aperturescience.com.tw/industries/lab/)
+
+## 公司與支援
+- [關於研楷](https://aperturescience.com.tw/about/): 公司背景、名稱與品牌說明
+- [常見問題](https://aperturescience.com.tw/faq/): NETD、解析度、發射率、系列選型
+- [聯絡諮詢](https://aperturescience.com.tw/contact/)

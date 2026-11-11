@@ -1,0 +1,301 @@
+# -*- coding: utf-8 -*-
+"""Shared layout + helpers for the Aperture Science static site generator."""
+import json
+import os
+
+SITE = "https://aperturescience.com.tw"
+OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ORG_ZH = "研楷有限公司"
+ORG_EN = "Aperture Science Co., Ltd."
+PHONE = "+886 933-027-706"
+PHONE_LD = "+886-933-027-706"
+ADDRESS = "桃園市桃園區中正路1092號25樓"
+LASTMOD = "2026-11-11"
+
+PAGES = []  # (path, priority) registry for sitemap
+
+
+def todo(label):
+    """Visible marker for information the company still has to supply."""
+    return f'<span class="todo">待補：{label}</span>'
+
+
+def esc(s):
+    return (s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+             .replace('"', "&quot;"))
+
+
+def jsonld(obj):
+    return ('<script type="application/ld+json">'
+            + json.dumps(obj, ensure_ascii=False, separators=(",", ":"))
+            + "</script>")
+
+
+ORG_LD = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": SITE + "/#org",
+    "name": ORG_ZH,
+    "alternateName": [ORG_EN, "研楷"],
+    "url": SITE + "/",
+    "foundingDate": "2024",
+    "description": "研楷有限公司（Aperture Science Co., Ltd.）為台灣的手持式紅外線熱像儀與 AI/ML 影像分析服務商，"
+                   "為高德智感（Guide Sensmart）授權代理商，並開發自有品牌 AP_G 系列，服務半導體、智慧能源與研發實驗室。",
+    "telephone": PHONE_LD,
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "中正路1092號25樓",
+        "addressLocality": "桃園區",
+        "addressRegion": "桃園市",
+        "addressCountry": "TW",
+    },
+    "brand": [
+        {"@type": "Brand", "name": "Guide Sensmart", "alternateName": ["高德智感"]},
+        {"@type": "Brand", "name": "AP_G"},
+    ],
+    "knowsAbout": ["手持式紅外線熱像儀", "熱像檢測", "NETD", "半導體熱點檢測",
+                   "電力設備紅外線巡檢", "ML/DL 工業影像分析"],
+}
+
+NAV = [
+    ("products", "/products/", "產品方案", "SOLUTIONS"),
+    ("industries", "/industries/", "產業應用", "INDUSTRIES"),
+    ("ai", "/ai-inspection/", "AI 影像分析", "AI VISION"),
+    ("about", "/about/", "關於研楷", "ABOUT"),
+    ("faq", "/faq/", "常見問題", "FAQ"),
+]
+
+LOGO_SVG = '''<svg viewBox="0 0 100 100" class="w-full h-full" aria-hidden="true">
+<circle cx="50" cy="50" r="42" fill="none" stroke="#002d5a" stroke-width="3" />
+<path d="M30 30 A30 30 0 0 1 70 30" fill="none" stroke="#334155" stroke-width="2.5" stroke-linecap="round" />
+<path d="M25 55 A35 35 0 0 0 75 55" fill="none" stroke="#334155" stroke-width="2.5" stroke-linecap="round" />
+<circle cx="50" cy="50" r="14" fill="#002d5a" />
+<circle cx="46" cy="46" r="3" fill="#ffffff" />
+<path d="M25 35 L27 41 L33 43 L27 45 L25 51 L23 45 L17 43 L23 41 Z" fill="#002d5a" class="star-blink" />
+</svg>'''
+
+
+def head(title, desc, path, ld=None, noindex=False):
+    full_title = title if "研楷" in title and "Aperture" in title else f"{title}｜研楷 Aperture Science"
+    url = SITE + path
+    robots = '<meta name="robots" content="noindex, nofollow">' if noindex else ""
+    ld_html = "\n".join(jsonld(o) for o in (ld or []))
+    return f'''<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{esc(full_title)}</title>
+<meta name="description" content="{esc(desc)}">
+<link rel="canonical" href="{url}">
+{robots}
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="研楷 Aperture Science">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:title" content="{esc(full_title)}">
+<meta property="og:description" content="{esc(desc)}">
+<meta property="og:url" content="{url}">
+<link rel="stylesheet" href="/assets/tailwind.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+{ld_html}
+</head>
+<body class="font-sans selection:bg-navyMain selection:text-white">
+'''
+
+
+def nav(active=""):
+    links = ""
+    mobile = '<a href="/" class="block py-3 border-b border-slate-100 text-slate-700">首頁 HOME</a>'
+    for key, href, zh, en in NAV:
+        cls = "nav-link active" if key == active else "nav-link"
+        links += (f'<a href="{href}" class="{cls} py-2 border-b-2 border-transparent text-slate-600 '
+                  f'hover:text-navyMain transition">{zh} {en}</a>')
+        mobile += f'<a href="{href}" class="block py-3 border-b border-slate-100 text-slate-700">{zh} {en}</a>'
+    mobile += ('<a href="/contact/" class="block mt-4 text-center bg-navyMain text-white py-3 '
+               'rounded-sm font-bold">聯絡諮詢 CONTACT</a>')
+    return f'''<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-[200] focus:bg-white focus:p-3">跳到主要內容</a>
+<nav class="fixed w-full z-[100] glass-nav border-b border-slate-200/50 transition-all duration-300" id="main-nav" aria-label="主選單">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex justify-between h-20 items-center transition-all duration-300" id="nav-container">
+<a href="/" class="flex items-center space-x-3 group" aria-label="研楷 Aperture Science 首頁">
+<div class="w-12 h-12">{LOGO_SVG}</div>
+<div>
+<div class="text-xl font-bold tracking-tighter text-navyMain font-tech uppercase">Aperture <span class="text-slate-500 font-light">Science</span></div>
+<div class="text-[9px] tracking-[0.2em] text-slate-400 font-normal m-0 uppercase">研楷有限公司</div>
+</div>
+</a>
+<div class="hidden lg:flex space-x-7 text-[12px] font-bold tracking-widest items-center">
+{links}
+<a href="/contact/" class="bg-navyMain text-white hover:bg-slate-700 px-5 py-2 rounded-sm transition font-bold shadow-sm">聯絡諮詢 CONTACT</a>
+</div>
+<button id="menu-btn" class="lg:hidden p-3 text-navyMain" aria-label="開啟選單" aria-expanded="false" aria-controls="mobile-menu">
+<i class="fas fa-bars text-xl"></i>
+</button>
+</div>
+</div>
+<div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-200 px-6 pb-6 text-sm font-bold tracking-wider">
+{mobile}
+</div>
+</nav>
+<main id="main" class="pt-20">
+'''
+
+
+def footer():
+    return f'''</main>
+<footer class="py-16 bg-navyLight border-t border-slate-200">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid md:grid-cols-4 gap-10 mb-12">
+<div class="md:col-span-1">
+<div class="text-2xl font-bold font-tech text-navyMain uppercase mb-3">Aperture <span class="text-slate-500 font-light">Science</span></div>
+<p class="text-sm text-slate-500 leading-relaxed">研楷有限公司<br>手持式熱像儀・AI/ML 影像分析<br>高德智感（Guide Sensmart）授權代理</p>
+<p class="text-sm text-slate-500 mt-4">{ADDRESS}<br>{PHONE}</p>
+</div>
+<div>
+<h2 class="text-xs font-tech tracking-[0.25em] text-slate-400 uppercase mb-4">Products</h2>
+<ul class="space-y-2 text-sm text-slate-600">
+<li><a class="hover:text-navyMain" href="/products/">產品總覽</a></li>
+<li><a class="hover:text-navyMain" href="/products/apex-series/">APEX 系列</a></li>
+<li><a class="hover:text-navyMain" href="/products/e-series/">E 系列</a></li>
+<li><a class="hover:text-navyMain" href="/products/h-series/">H 系列</a></li>
+<li><a class="hover:text-navyMain" href="/products/pt-series/">PT 系列</a></li>
+<li><a class="hover:text-navyMain" href="/products/ap-g/">AP_G 台灣自有系列</a></li>
+<li><a class="hover:text-navyMain" href="/products/instruments/">工業／半導體儀器</a></li>
+</ul>
+</div>
+<div>
+<h2 class="text-xs font-tech tracking-[0.25em] text-slate-400 uppercase mb-4">Industries</h2>
+<ul class="space-y-2 text-sm text-slate-600">
+<li><a class="hover:text-navyMain" href="/industries/semiconductor/">半導體產業</a></li>
+<li><a class="hover:text-navyMain" href="/industries/power/">智慧能源與電力</a></li>
+<li><a class="hover:text-navyMain" href="/industries/lab/">研發實驗室</a></li>
+<li><a class="hover:text-navyMain" href="/ai-inspection/">ML／DL 影像分析</a></li>
+</ul>
+</div>
+<div>
+<h2 class="text-xs font-tech tracking-[0.25em] text-slate-400 uppercase mb-4">Company</h2>
+<ul class="space-y-2 text-sm text-slate-600">
+<li><a class="hover:text-navyMain" href="/about/">關於研楷</a></li>
+<li><a class="hover:text-navyMain" href="/faq/">常見問題</a></li>
+<li><a class="hover:text-navyMain" href="/contact/">聯絡諮詢</a></li>
+<li><a class="hover:text-navyMain" href="/privacy/">隱私權保護政策</a></li>
+<li><a class="hover:text-navyMain" href="/terms/">服務條款</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-slate-200 pt-6 text-xs text-slate-400">© 2026 Aperture Science Co., Ltd. (研楷有限公司) 版權所有</div>
+</div>
+</footer>
+<script src="/assets/site.js"></script>
+</body>
+</html>
+'''
+
+
+def breadcrumbs(items):
+    """items: list of (name, path); last one is the current page."""
+    parts = []
+    for i, (name, path) in enumerate(items):
+        if i < len(items) - 1:
+            parts.append(f'<a href="{path}">{name}</a>')
+        else:
+            parts.append(f'<span class="text-slate-700">{name}</span>')
+    html = ('<nav class="breadcrumb text-xs text-slate-500 mb-6" aria-label="麵包屑">'
+            + ' <span class="mx-1">/</span> '.join(parts) + "</nav>")
+    ld = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": i + 1, "name": n.replace("&amp;", "&"),
+             "item": SITE + p}
+            for i, (n, p) in enumerate(items)
+        ],
+    }
+    return html, ld
+
+
+def page_header(eyebrow, title, lead, crumbs_html, tone="light"):
+    bg = "bg-navyLight" if tone == "tint" else ""
+    return f'''<header class="{bg} border-b border-slate-200">
+<div class="max-w-7xl mx-auto px-6 pt-12 pb-14">
+{crumbs_html}
+<div class="text-xs font-tech text-slate-400 tracking-[0.4em] mb-3 uppercase">{eyebrow}</div>
+<h1 class="text-4xl md:text-5xl font-bold text-navyMain mb-5 leading-tight">{title}</h1>
+<div class="minimal-line w-32 mb-6"></div>
+<p class="text-lg text-slate-600 max-w-3xl font-light leading-relaxed">{lead}</p>
+</div>
+</header>
+'''
+
+
+def answer_box(text):
+    """Short, quotable answer placed near the top of a page (helps search and AI summaries)."""
+    return (f'<div class="bg-white border-l-4 border-navyMain rounded-sm shadow-sm p-6 mb-10">'
+            f'<div class="text-[10px] font-tech tracking-[0.25em] text-slate-400 uppercase mb-2">重點摘要</div>'
+            f'<p class="text-navyText leading-relaxed">{text}</p></div>')
+
+
+def spec_table(rows):
+    out = '<table class="spec-table"><tbody>'
+    for label, val in rows:
+        v = val if val else todo("請提供原廠規格")
+        out += f"<tr><th scope=\"row\">{label}</th><td>{v}</td></tr>"
+    out += "</tbody></table>"
+    return out
+
+
+def cta(title="需要選型建議或報價？", text="告訴我們您的應用場景與預算範圍，顧問團隊會協助您比較適合的機型與方案。",
+        topic="Hardware Inquiry", product=""):
+    q = f"?topic={topic.replace(' ', '%20')}"
+    if product:
+        q += f"&amp;product={product}"
+    return f'''<section class="bg-navyMain text-white">
+<div class="max-w-7xl mx-auto px-6 py-16 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+<div>
+<h2 class="text-2xl md:text-3xl font-bold mb-3">{title}</h2>
+<p class="text-white/70 max-w-2xl font-light">{text}</p>
+</div>
+<a href="/contact/{q}" class="shrink-0 inline-flex items-center space-x-3 bg-white text-navyMain px-8 py-4 font-bold rounded-sm hover:bg-slate-100 transition">
+<span>專案諮詢 CONTACT</span><i class="fas fa-chevron-right text-xs"></i></a>
+</div>
+</section>
+'''
+
+
+def faq_block(items):
+    """items: list of (question, answer_html, is_answered)"""
+    html = ""
+    for q, a, _ in items:
+        html += (f'<details class="faq"><summary>{q}</summary>'
+                 f'<div class="faq-a">{a}</div></details>')
+    return html
+
+
+def faq_ld(items):
+    ents = []
+    import re
+    for q, a, answered in items:
+        if not answered:
+            continue
+        text = re.sub(r"<[^>]+>", "", a).strip()
+        ents.append({"@type": "Question", "name": re.sub(r"<[^>]+>", "", q),
+                     "acceptedAnswer": {"@type": "Answer", "text": text}})
+    return {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": ents}
+
+
+def write(path, html, priority="0.7", index=True):
+    """path like '/products/' -> OUT/products/index.html"""
+    if path.endswith("/"):
+        fp = os.path.join(OUT, path.strip("/"), "index.html") if path != "/" else os.path.join(OUT, "index.html")
+    else:
+        fp = os.path.join(OUT, path.lstrip("/"))
+    os.makedirs(os.path.dirname(fp), exist_ok=True)
+    with open(fp, "w", encoding="utf-8") as f:
+        f.write(html)
+    if index:
+        PAGES.append((path, priority))
+    return fp

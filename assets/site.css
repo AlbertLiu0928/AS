@@ -1,0 +1,64 @@
+/* Aperture Science — shared styles (carried over from the original one-page site) */
+body { background-color: #fcfcfd; color: #1e293b; }
+html { scroll-behavior: smooth; }
+
+.glass-nav { background: rgba(252, 252, 253, 0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+
+.hero-bg {
+  background:
+    radial-gradient(1200px 500px at 85% 10%, rgba(0, 45, 90, 0.10), transparent 60%),
+    linear-gradient(180deg, #fcfcfd 0%, #f4f7fa 100%);
+}
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(0, 45, 90, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 45, 90, 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.tech-border-accent { position: relative; border: 1px solid rgba(0, 45, 90, 0.1); }
+.tech-border-accent::before { content: ''; position: absolute; top: -1px; left: -1px; width: 12px; height: 12px; border-top: 2px solid #002d5a; border-left: 2px solid #002d5a; }
+
+.minimal-line { height: 1px; background: linear-gradient(90deg, transparent, rgba(0, 45, 90, 0.2), transparent); }
+.nav-link.active { color: #002d5a; border-bottom-color: #002d5a; }
+
+.star-blink { animation: blink 4s infinite; }
+@keyframes blink { 0%, 100% { opacity: 0.8; } 50% { opacity: 0.2; } }
+
+.legal-content h4 { color: #002d5a; font-weight: bold; margin-top: 2rem; margin-bottom: 1rem; font-size: 1.15rem; border-left: 2px solid #002d5a; padding-left: 0.75rem; }
+.legal-content p { color: #475569; margin-bottom: 1.25rem; line-height: 1.8; }
+
+.hp-field { display: none !important; visibility: hidden !important; }
+
+/* Article-style body copy used on content pages */
+.prose-as p { color: #475569; line-height: 1.9; margin-bottom: 1.1rem; }
+.prose-as h3 { color: #002d5a; font-weight: 700; font-size: 1.35rem; margin: 2.2rem 0 0.9rem; }
+.prose-as ul { list-style: none; padding: 0; margin: 0 0 1.2rem; }
+.prose-as ul li { position: relative; padding-left: 1.25rem; color: #475569; line-height: 1.8; margin-bottom: 0.5rem; }
+.prose-as ul li::before { content: ''; position: absolute; left: 0; top: 0.72em; width: 6px; height: 6px; border-radius: 9999px; background: #002d5a; }
+
+/* Spec tables */
+.spec-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.spec-table th, .spec-table td { text-align: left; padding: 0.85rem 1rem; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+.spec-table th { width: 34%; color: #002d5a; font-weight: 600; background: #f4f7fa; }
+.spec-table td { color: #334155; }
+
+/* Placeholder marker: content the company still needs to supply. Remove before publishing. */
+.todo { display: inline-block; padding: 0.1rem 0.55rem; border: 1px dashed #d97706; background: #fffbeb; color: #92400e; font-size: 0.8rem; border-radius: 4px; }
+
+/* FAQ accordion (native details) */
+details.faq { border: 1px solid #e2e8f0; border-radius: 0.75rem; background: #fff; }
+details.faq + details.faq { margin-top: 0.9rem; }
+details.faq summary { cursor: pointer; list-style: none; padding: 1.1rem 1.4rem; font-weight: 600; color: #002d5a; display: flex; justify-content: space-between; gap: 1rem; align-items: center; }
+details.faq summary::-webkit-details-marker { display: none; }
+details.faq summary::after { content: '+'; font-family: 'Orbitron', sans-serif; color: #64748b; font-size: 1.2rem; }
+details.faq[open] summary::after { content: '–'; }
+details.faq .faq-a { padding: 0 1.4rem 1.3rem; color: #475569; line-height: 1.85; }
+
+.breadcrumb a { color: #64748b; }
+.breadcrumb a:hover { color: #002d5a; text-decoration: underline; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .star-blink { animation: none; }
+}

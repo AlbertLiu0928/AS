@@ -1,0 +1,38 @@
+# 研楷 Aperture Science — robots.txt
+User-agent: *
+Allow: /
+Disallow: /legacy/
+Disallow: /tools/
+
+# AI / answer-engine crawlers: allowed so product information can be cited.
+User-agent: GPTBot
+Allow: /
+Disallow: /legacy/
+Disallow: /tools/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /legacy/
+Disallow: /tools/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /legacy/
+Disallow: /tools/
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /legacy/
+Disallow: /tools/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /legacy/
+Disallow: /tools/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /legacy/
+Disallow: /tools/
+
+Sitemap: https://aperturescience.com.tw/sitemap.xml
