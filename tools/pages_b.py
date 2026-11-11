@@ -2,9 +2,16 @@
 from lib import *
 
 
+PHOTOS = {
+    "fa-microchip": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;q=80&amp;w=600",
+    "fa-bolt": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&amp;fit=crop&amp;q=80&amp;w=600",
+    "fa-flask": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&amp;fit=crop&amp;q=80&amp;w=600",
+}
+
+
 def industry_card(href, icon, grad, title, desc):
     return f'''<a href="{href}" class="group block bg-white rounded-xl border border-slate-200 overflow-hidden hover:border-navyMain hover:shadow-md transition">
-<div class="h-32 bg-gradient-to-br {grad} flex items-center justify-center text-white text-4xl"><i class="fas {icon}"></i></div>
+<div class="overflow-hidden"><img src="{PHOTOS[icon]}" width="600" height="400" alt="{title}" class="h-56 w-full object-cover group-hover:scale-105 transition duration-500" loading="lazy"></div>
 <div class="p-7"><h2 class="font-bold text-navyMain text-xl mb-3">{title}</h2><p class="text-sm text-slate-600 leading-relaxed mb-5">{desc}</p>
 <span class="text-sm font-bold text-navyMain">了解應用 <i class="fas fa-arrow-right ml-1 text-xs group-hover:translate-x-1 transition"></i></span></div>
 </a>'''

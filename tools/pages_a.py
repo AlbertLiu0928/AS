@@ -23,7 +23,7 @@ def home():
              "研楷有限公司（Aperture Science Co., Ltd.）專注手持式紅外線熱像儀與 AI/ML 影像分析，為高德智感 Guide Sensmart 授權代理商，"
              "服務半導體、智慧能源與研發實驗室的精密熱點檢測。", "/", ld)
     body = nav("")
-    body += f'''<section class="hero-bg grid-bg relative">
+    body += f'''<section class="hero-bg relative">
 <div class="max-w-7xl mx-auto px-6 py-20 md:py-28 grid lg:grid-cols-2 gap-14 items-center">
 <div>
 <div class="inline-flex items-center space-x-3 px-3 py-1 bg-navyMain/5 border border-navyMain/20 text-navyMain text-xs font-tech mb-8 tracking-[0.2em]">
@@ -98,15 +98,15 @@ def home():
 <h2 class="text-3xl font-bold text-navyMain mb-10">依您的產業找方案</h2>
 <div class="grid md:grid-cols-3 gap-8">
 <a href="/industries/semiconductor/" class="group block bg-white rounded-xl border border-slate-200 overflow-hidden hover:border-navyMain hover:shadow-md transition">
-<div class="h-28 bg-gradient-to-br from-navyMain to-slate-700 flex items-center justify-center text-white text-3xl"><i class="fas fa-microchip"></i></div>
+<div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;q=80&amp;w=600" width="600" height="400" alt="半導體產業應用情境" class="h-48 w-full object-cover group-hover:scale-105 transition duration-500" loading="lazy"></div>
 <div class="p-6"><h3 class="font-bold text-navyMain text-lg mb-2">半導體產業</h3><p class="text-sm text-slate-600 leading-relaxed">封裝測試與 Wafer 階段的非接觸式溫度分析，協助排查潛在熱點。</p></div>
 </a>
 <a href="/industries/power/" class="group block bg-white rounded-xl border border-slate-200 overflow-hidden hover:border-navyMain hover:shadow-md transition">
-<div class="h-28 bg-gradient-to-br from-slate-700 to-slate-900 flex items-center justify-center text-white text-3xl"><i class="fas fa-bolt"></i></div>
+<div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&amp;fit=crop&amp;q=80&amp;w=600" width="600" height="400" alt="智慧能源與電力設施" class="h-48 w-full object-cover group-hover:scale-105 transition duration-500" loading="lazy"></div>
 <div class="p-6"><h3 class="font-bold text-navyMain text-lg mb-2">智慧能源與電力</h3><p class="text-sm text-slate-600 leading-relaxed">變壓器、電力機房與儲能設施的熱像巡檢，預防過熱造成的災損。</p></div>
 </a>
 <a href="/industries/lab/" class="group block bg-white rounded-xl border border-slate-200 overflow-hidden hover:border-navyMain hover:shadow-md transition">
-<div class="h-28 bg-gradient-to-br from-navyMain to-slate-600 flex items-center justify-center text-white text-3xl"><i class="fas fa-flask"></i></div>
+<div class="overflow-hidden"><img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&amp;fit=crop&amp;q=80&amp;w=600" width="600" height="400" alt="研發實驗室" class="h-48 w-full object-cover group-hover:scale-105 transition duration-500" loading="lazy"></div>
 <div class="p-6"><h3 class="font-bold text-navyMain text-lg mb-2">研發實驗室</h3><p class="text-sm text-slate-600 leading-relaxed">輔助 NPI 階段的熱散布驗證，把實驗數據轉化為量產標準。</p></div>
 </a>
 </div>
@@ -171,8 +171,8 @@ def about():
 <p>{todo("請說明 AP_G 在台灣完成的製程與研發項目（例如組裝、校正、算法、軟體），以及與高德原廠產品的關係")}</p>
 
 <h3>團隊與合作</h3>
-<p>{todo("真實團隊照片與介紹")}</p>
-<p>{todo("可公開的客戶、合作單位與案例（需先確認對方授權後才可標示名稱或標誌）")}</p>
+<figure class="relative w-full h-[320px] rounded-lg overflow-hidden tech-border-accent shadow-xl bg-gradient-to-br from-navyMain to-slate-700 flex items-center justify-center not-prose"><img src="/assets/img/team.webp" width="1200" height="889" alt="Aperture Science 團隊討論" class="absolute inset-0 w-full h-full object-cover z-10" loading="lazy"><figcaption class="text-white/80 font-tech text-sm tracking-widest uppercase z-0">Aperture Science Team</figcaption></figure>
+<p class="mt-6">{todo("可公開的合作案例（應用情境、成效）")}</p>
 </div>
 
 <aside class="space-y-6">
@@ -196,8 +196,8 @@ def about():
 
 # ------------------------------------------------------------- PRODUCTS
 SERIES = [
-    ("apex-series", "APEX 系列", "高靈敏度旗艦", "HIGH NETD · 15mK",
-     "高靈敏度手持式熱像儀，適用半導體熱點排查、電力設備巡檢與精密研發實驗室。"),
+    ("apex-series", "APEX 系列", "業界最高靈敏度", "HIGH NETD · 15mK",
+     "業界最高靈敏度——採用業界頂尖 15mK 超高靈敏度感測核心，能精準捕捉微小溫差，適用於半導體熱點排查、電力設備巡檢與精密研發實驗室。"),
     ("e-series", "E 系列", "入門巡檢", "ENTRY",
      "入門巡檢型手持式熱像儀，適合日常設備巡檢與基礎維護。"),
     ("h-series", "H 系列", "電力維護", "POWER MAINTENANCE",
@@ -240,7 +240,7 @@ def products_index():
 <table class="spec-table min-w-[640px]">
 <thead><tr class="bg-navyLight"><th class="!w-auto">系列</th><th class="!w-auto">定位</th><th class="!w-auto">適合情境</th><th class="!w-auto">頁面</th></tr></thead>
 <tbody>
-<tr><td><strong>APEX</strong></td><td>高靈敏度（15mK NETD）</td><td>半導體熱點排查、精密研發、電力巡檢</td><td><a class="text-navyMain underline" href="/products/apex-series/">查看</a></td></tr>
+<tr><td><strong>APEX</strong></td><td>業界最高靈敏度（15mK NETD）</td><td>半導體熱點排查、精密研發、電力巡檢</td><td><a class="text-navyMain underline" href="/products/apex-series/">查看</a></td></tr>
 <tr><td><strong>E</strong></td><td>入門巡檢</td><td>日常設備巡檢、基礎維護</td><td><a class="text-navyMain underline" href="/products/e-series/">查看</a></td></tr>
 <tr><td><strong>H</strong></td><td>電力維護</td><td>配電與電力設備維護</td><td><a class="text-navyMain underline" href="/products/h-series/">查看</a></td></tr>
 <tr><td><strong>PT</strong></td><td>旗艦高溫監控</td><td>高溫製程與設備監測</td><td><a class="text-navyMain underline" href="/products/pt-series/">查看</a></td></tr>
@@ -256,7 +256,7 @@ def products_index():
 <div><h3 class="font-bold text-navyMain text-lg mb-2">工業／半導體儀器</h3><p class="text-sm text-slate-600 leading-relaxed">桌上型精密量測、穿透式 X-ray &amp; IR 檢測與 X 光設備品保工具。</p></div>
 </a>
 <a href="/ai-inspection/" class="group flex gap-6 bg-white rounded-xl border border-slate-200 hover:border-navyMain hover:shadow-md transition p-6">
-<div class="w-36 h-28 shrink-0 rounded-lg bg-navyMain text-white flex items-center justify-center text-3xl"><i class="fas fa-brain"></i></div>
+<img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&amp;fit=crop&amp;q=80&amp;w=800" width="800" height="533" alt="ML／DL 影像分析" class="w-36 h-28 shrink-0 object-cover rounded-lg" loading="lazy">
 <div><h3 class="font-bold text-navyMain text-lg mb-2">ML／DL 影像分析服務</h3><p class="text-sm text-slate-600 leading-relaxed">晶圓缺陷識別、熱場模擬、焊接與封裝檢測等客製化視覺分析。</p></div>
 </a>
 </div>
@@ -268,7 +268,7 @@ def products_index():
 
 
 def series_page(slug, name, pos, badge, summary, scenarios, rows, tips, faqs, known_note=None,
-                image=True, extra_html="", brand="Guide Sensmart", product_ld_extra=None):
+                image=True, extra_html="", brand="Guide Sensmart", product_ld_extra=None, official=None):
     path = f"/products/{slug}/"
     bc_html, bc_ld = breadcrumbs([("首頁", "/"), ("產品方案", "/products/"), (name, path)])
     prod = {
@@ -294,6 +294,8 @@ def series_page(slug, name, pos, badge, summary, scenarios, rows, tips, faqs, kn
                'alt="Guide 手持式紅外線熱像儀（示意）" class="w-full h-auto" loading="lazy">'
                '<figcaption class="text-xs text-white/60 px-4 py-2 bg-black">產品外觀示意，實際外觀依型號而異。</figcaption></figure>')
     note = f'<p class="text-xs text-slate-400 mt-3">{known_note}</p>' if known_note else ""
+    off = (f'<a href="{official[0]}" target="_blank" rel="noopener noreferrer" class="mt-4 block text-center border border-navyMain text-navyMain py-4 rounded-sm font-bold hover:bg-navyMain hover:text-white transition">'
+           f'{official[1]} <i class="fas fa-external-link-alt text-xs ml-1"></i></a>') if official else ""
     body += f'''<div class="max-w-7xl mx-auto px-6 py-16 grid lg:grid-cols-5 gap-14">
 <div class="lg:col-span-3 prose-as">
 {answer_box(summary)}
@@ -313,6 +315,7 @@ def series_page(slug, name, pos, badge, summary, scenarios, rows, tips, faqs, kn
 </div>
 {note}
 <a href="/contact/?topic=Hardware%20Inquiry&amp;product={name.replace(" ", "%20")}" class="mt-6 block text-center bg-navyMain text-white py-4 rounded-sm font-bold hover:bg-slate-700 transition">詢問 {name} 報價與規格書</a>
+{off}
 </aside>
 </div>
 '''
@@ -328,9 +331,9 @@ def products_series():
         ("防護等級", None), ("認證", None), ("隨附軟體", None), ("保固", None)]
 
     series_page(
-        "apex-series", "APEX 系列", "高靈敏度", "HIGH NETD",
-        "APEX 系列是高德智感（Guide Sensmart）授權的高靈敏度手持式熱像儀，採用 15mK NETD 感測核心，解析度 1280×1024，"
-        "適用於半導體熱點排查、電力設備巡檢與精密研發實驗室。",
+        "apex-series", "APEX 系列", "業界最高靈敏度", "HIGH NETD",
+        "業界最高靈敏度——高德智感（Guide Sensmart）授權的手持式熱像儀，採用業界頂尖 15mK 超高靈敏度感測核心，能精準捕捉微小溫差，"
+        "適用於半導體熱點排查、電力設備巡檢與精密研發實驗室。解析度 1280×1024。",
         ["半導體封裝、載板與板級熱點排查", "電力設備巡檢（變壓器、開關櫃、接點）", "精密研發實驗室的熱散布與溫升驗證"],
         common_rows("1280 × 1024 px", "15 mK"),
         ["<strong>解析度與目標大小</strong>：目標越小，越需要高解析度搭配合適鏡頭，才能在可用距離內取得足夠像素。",
@@ -341,7 +344,8 @@ def products_series():
           "依現有官方網站資訊，APEX 系列 NETD 為 15 mK，解析度為 1280×1024 像素。正式規格以原廠規格書與報價單為準。", True),
          ("APEX 系列適合做半導體熱點檢測嗎？",
           "高解析度與低 NETD 的組合適合小目標、低對比的熱點檢測，但實際效果還取決於鏡頭、檢測距離與表面發射率，建議先提供樣品與情境，由顧問評估。", True)],
-        known_note="解析度與 NETD 數值依現有官方網站資訊；其餘規格待原廠資料確認。")
+        known_note="解析度與 NETD 數值依現有官方網站資訊；其餘規格待原廠資料確認。",
+        official=("https://www.guideir.cn/", "高德智感原廠官網"))
 
     series_page(
         "e-series", "E 系列", "入門巡檢", "ENTRY",

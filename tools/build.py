@@ -74,7 +74,7 @@ Contact: {lib.PHONE} ・ {lib.ADDRESS} ・ {SITE}/contact/
 
 ## 產品
 - [產品方案總覽]({SITE}/products/): 手持式熱像儀系列對照與其他方案
-- [APEX 系列]({SITE}/products/apex-series/): 高靈敏度（15mK NETD、1280×1024）手持式熱像儀
+- [APEX 系列]({SITE}/products/apex-series/): 業界最高靈敏度（15mK NETD、1280×1024）手持式熱像儀
 - [E 系列]({SITE}/products/e-series/): 入門巡檢
 - [H 系列]({SITE}/products/h-series/): 電力維護
 - [PT 系列]({SITE}/products/pt-series/): 旗艦級高溫監控
