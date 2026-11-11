@@ -62,3 +62,8 @@ details.faq .faq-a { padding: 0 1.4rem 1.3rem; color: #475569; line-height: 1.85
   html { scroll-behavior: auto; }
   .star-blink { animation: none; }
 }
+
+/* Client name strip (restored from the original site): 7 names + 7 duplicates for a seamless loop */
+.logo-slider { display: flex; width: calc(250px * 14); animation: logo-scroll 40s linear infinite; }
+@keyframes logo-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-250px * 7)); } }
+@media (prefers-reduced-motion: reduce) { .logo-slider { animation: none; } }

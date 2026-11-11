@@ -48,6 +48,25 @@ def home():
 </div>
 </section>
 
+<div class="py-16 bg-navyLight border-y border-slate-200 overflow-hidden" aria-label="合作客戶">
+<div class="logo-slider">
+<div class="flex items-center justify-center w-[250px] grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition cursor-default"><span class="text-2xl font-bold text-navyMain font-tech">TSMC</span></div>
+<div class="flex items-center justify-center w-[250px] grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition cursor-default"><span class="text-2xl font-bold text-navyMain font-tech">ITRI</span></div>
+<div class="flex items-center justify-center w-[250px] grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition cursor-default"><span class="text-2xl font-bold text-navyMain font-tech">CPC</span></div>
+<div class="flex items-center justify-center w-[250px] grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition cursor-default"><span class="text-2xl font-bold text-navyMain font-tech">TAIPOWER</span></div>
+<div class="flex items-center justify-center w-[250px] grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition cursor-default"><span class="text-2xl font-bold text-navyMain font-tech">GE POWER</span></div>
+<div class="flex items-center justify-center w-[250px] grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition cursor-default"><span class="text-2xl font-bold text-navyMain font-tech">UMC</span></div>
+<div class="flex items-center justify-center w-[250px] grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition cursor-default"><span class="text-2xl font-bold text-navyMain font-tech">ASE GROUP</span></div>
+<div class="flex items-center justify-center w-[250px] grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition cursor-default" aria-hidden="true"><span class="text-2xl font-bold text-navyMain font-tech">TSMC</span></div>
+<div class="flex items-center justify-center w-[250px] grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition cursor-default" aria-hidden="true"><span class="text-2xl font-bold text-navyMain font-tech">ITRI</span></div>
+<div class="flex items-center justify-center w-[250px] grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition cursor-default" aria-hidden="true"><span class="text-2xl font-bold text-navyMain font-tech">CPC</span></div>
+<div class="flex items-center justify-center w-[250px] grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition cursor-default" aria-hidden="true"><span class="text-2xl font-bold text-navyMain font-tech">TAIPOWER</span></div>
+<div class="flex items-center justify-center w-[250px] grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition cursor-default" aria-hidden="true"><span class="text-2xl font-bold text-navyMain font-tech">GE POWER</span></div>
+<div class="flex items-center justify-center w-[250px] grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition cursor-default" aria-hidden="true"><span class="text-2xl font-bold text-navyMain font-tech">UMC</span></div>
+<div class="flex items-center justify-center w-[250px] grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition cursor-default" aria-hidden="true"><span class="text-2xl font-bold text-navyMain font-tech">ASE GROUP</span></div>
+</div>
+</div>
+
 <section class="max-w-7xl mx-auto px-6 py-16">
 {answer_box("研楷有限公司（Aperture Science Co., Ltd.）是位於桃園的手持式熱像儀與 AI 影像分析服務商，為高德智感（Guide Sensmart）授權代理商，"
             "並提供台灣自有品牌 AP_G 系列與客製化開發，服務對象涵蓋半導體、電力能源與研發實驗室。")}
