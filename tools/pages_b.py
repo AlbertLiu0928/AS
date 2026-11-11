@@ -26,8 +26,8 @@ def industries_index():
     body += page_header("Target Industries / 產業應用", "跨足尖端領域的精密監測",
                         "從晶圓封裝到電力設備，從研發驗證到產線巡檢，依場景選擇合適的熱像方案。", bc_html, "tint")
     body += f'''<div class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-8">
-{industry_card("/industries/semiconductor/", "fa-microchip", "from-navyMain to-slate-700", "半導體產業", "提供製程中封裝測試與 Wafer 階段的非接觸式溫度分析，協助排除潛在熱點異常。")}
-{industry_card("/industries/power/", "fa-bolt", "from-slate-700 to-slate-900", "智慧能源與電力", "變壓器、電力機房與儲能設施的熱像巡檢，有效預防過熱引發的災損。")}
+{industry_card("/industries/semiconductor/", "fa-microchip", "from-navyMain to-slate-700", "半導體產業", "提供製程中封裝測試與 Wafer 階段的非接觸式溫度 analysis，協助排除潛在熱點異常點檢。")}
+{industry_card("/industries/power/", "fa-bolt", "from-slate-700 to-slate-900", "智慧能源與電力", "變壓器、電力機房與儲能設施的 24/7 自動化熱顯巡檢，有效預防過熱引發之災損。")}
 {industry_card("/industries/lab/", "fa-flask", "from-navyMain to-slate-600", "研發實驗室", "輔助 NPI（新產品導入）階段的熱散布驗證，協助將實驗數據轉化為工業生產標準。")}
 </div>
 '''
@@ -65,7 +65,7 @@ def industries():
 
     industry_page(
         "semiconductor", "半導體熱點檢測與熱像分析", "Semiconductor / 半導體產業",
-        "封裝測試與 Wafer 階段的非接觸式溫度分析，協助排除潛在熱點異常。",
+        "提供製程中封裝測試與 Wafer 階段的非接觸式溫度 analysis，協助排除潛在熱點異常點檢。",
         "半導體應用的目標通常很小、溫差也很小，選擇熱像儀時應優先看解析度、NETD 與鏡頭（含微距）。"
         "研楷提供 15mK NETD 的 APEX 系列、可客製的 AP_G，以及結合 AI 的缺陷識別與熱場分析服務。",
         f'''<h2 class="text-2xl font-bold text-navyMain mb-4">常見檢測情境</h2>
@@ -100,7 +100,7 @@ def industries():
 
     industry_page(
         "power", "電力與儲能設施熱像巡檢", "Smart Energy / 智慧能源與電力",
-        "變壓器、電力機房與儲能設施的熱像巡檢，有效預防過熱引發的災損。",
+        "變壓器、電力機房與儲能設施的 24/7 自動化熱顯巡檢，有效預防過熱引發之災損。",
         "電力設備的異常常以局部溫升的形式先出現，熱像巡檢能在不停機、不接觸的情況下找出過熱的接點與元件。"
         "研楷提供 H 系列（電力維護）、PT 系列（高溫監控）與 APEX 系列，並可搭配定點巡檢方案。",
         f'''<h2 class="text-2xl font-bold text-navyMain mb-4">常見檢測標的</h2>
